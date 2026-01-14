@@ -8,7 +8,7 @@ console.log(`  - Environments: ${loadEnvResult.loadedEnvFiles.map(x => x.path).j
 // Actual code generation setup
 import type { CodegenConfig  } from '@graphql-codegen/cli'
 import getSchemaInfo from '@remkoj/optimizely-graph-client/codegen'
-import OptimizelyGraphPreset, {type PresetOptions as OptimizelyGraphPresetOptions}  from '@remkoj/optimizely-graph-functions/preset'
+import { preset as OptimizelyGraphPreset, type PresetOptions as OptimizelyGraphPresetOptions}  from '@remkoj/optimizely-graph-functions/preset'
 
 // Create the configuration itself
 const config: CodegenConfig = {
@@ -26,6 +26,9 @@ const config: CodegenConfig = {
         './src/gql/': {
             preset: OptimizelyGraphPreset,
             presetConfig: {
+                // We're not exporting any functions, it's no longer 
+                // needed
+                functions: [],
                 // By default the preset will generate recursive queries
                 // untill multiple recursions are supported, this needs to
                 // be disabled when there's more then one component that

@@ -1,0 +1,48 @@
+{
+  "key": "HztlPromo",
+  "displayName": "Hztl Promo",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "Title": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "indexingType": "searchable"
+    },
+    "Text": {
+      "type": "richText",
+      "displayName": "Text",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "indexingType": "searchable"
+    },
+    "Image": {
+      "type": "contentReference",
+      "displayName": "Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "allowedTypes": [
+        "_media"
+      ],
+      "restrictedTypes": []
+    }
+  }
+}

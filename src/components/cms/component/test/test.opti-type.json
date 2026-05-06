@@ -1,0 +1,13 @@
+{
+  "key": "test",
+  "displayName": "test",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {}
+}

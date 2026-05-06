@@ -1,0 +1,35 @@
+{
+  "key": "SampleHeroBanner",
+  "displayName": "Sample Hero Banner",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled",
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "headingText": {
+      "type": "string",
+      "displayName": "Heading",
+      "description": "This is help text",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "Descripition": {
+      "type": "richText",
+      "displayName": "Descripition",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

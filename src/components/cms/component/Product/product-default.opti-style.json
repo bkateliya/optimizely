@@ -1,0 +1,31 @@
+{
+  "key": "ProductDefault",
+  "displayName": "Default",
+  "contentType": "Product",
+  "isDefault": true,
+  "settings": {
+    "backgroundColor": {
+      "displayName": "Background Color",
+      "editor": "selectOne",
+      "sortOrder": 10,
+      "choices": {
+        "white": {
+          "displayName": "White",
+          "sortOrder": 10
+        },
+        "gray": {
+          "displayName": "Light Gray",
+          "sortOrder": 20
+        },
+        "blue": {
+          "displayName": "Light Blue",
+          "sortOrder": 30
+        },
+        "dark": {
+          "displayName": "Dark",
+          "sortOrder": 40
+        }
+      }
+    }
+  }
+}

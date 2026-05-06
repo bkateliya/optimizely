@@ -1,0 +1,42 @@
+{
+  "key": "AboutUs",
+  "displayName": "AboutUsPageType",
+  "description": "created for testing in about page to use this content type",
+  "baseType": "_page",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "heading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "heading",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "content": {
+      "type": "array",
+      "displayName": "content",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "CTAElement"
+        ],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

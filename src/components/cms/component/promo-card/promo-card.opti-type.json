@@ -1,0 +1,53 @@
+{
+  "key": "PromoCard",
+  "displayName": "PromoCard",
+  "description": "A promotional card with title, text and a link",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "Title": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "Description": {
+      "type": "string",
+      "displayName": "Description",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "LinkUrl": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "LinkUrl",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "LinkText": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "LinkText",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "key": "LandingHeader",
+  "displayName": "Landing Header",
+  "description": "This is a Landing Page header",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "LogoUrl": {
+      "type": "link",
+      "displayName": "Logo URL",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "header",
+      "sortOrder": 0
+    },
+    "LogoImage": {
+      "type": "component",
+      "contentType": "ImageElement",
+      "displayName": "Logo Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "header",
+      "sortOrder": 0
+    }
+  }
+}

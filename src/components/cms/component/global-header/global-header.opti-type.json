@@ -1,0 +1,43 @@
+{
+  "key": "GlobalHeader",
+  "displayName": "Global Header",
+  "description": "This is a global header",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "LogoUrl": {
+      "type": "url",
+      "displayName": "Logo URL",
+      "description": "This is a Logo URL Field",
+      "localized": true,
+      "required": true,
+      "group": "header",
+      "sortOrder": 0
+    },
+    "LogoImage": {
+      "type": "component",
+      "contentType": "ImageElement",
+      "displayName": "Logo Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "header",
+      "sortOrder": 0
+    },
+    "NavText": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Nav Text",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "header",
+      "sortOrder": 0
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "key": "HomePage",
+  "displayName": "Home Page",
+  "description": "",
+  "baseType": "_page",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "Header": {
+      "type": "array",
+      "displayName": "Header",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100,
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    },
+    "Subheader": {
+      "type": "string",
+      "displayName": "Subheader",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -50
+    },
+    "Body": {
+      "type": "array",
+      "displayName": "Body",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "_component",
+          "_image",
+          "_media"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "Footer": {
+      "type": "array",
+      "displayName": "Footer",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    },
+    "sampleHeroBannerBlock": {
+      "type": "component",
+      "contentType": "SampleHeroBanner",
+      "displayName": "Sample Hero Banner",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

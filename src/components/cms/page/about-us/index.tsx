@@ -1,0 +1,33 @@
+import { type OptimizelyNextPage as CmsComponent } from "@remkoj/optimizely-cms-nextjs";
+import { getAboutUsDataDocument, type getAboutUsDataQuery } from '@/gql/graphql'
+import { getSdk } from "@/gql"
+
+/**
+ * AboutUsPageType
+ * ---
+ * created for testing in about page to use this content type
+ * 
+ * This component uses the content query that is auto-generated with the Optimizely CMS Preset for GraphQL Codegen, if you need 
+ * to override this query create a GraphQL file (for example: `getAboutUsData.query.graphql`) in the same folder as
+ * this file. This file must include a GraphQL query with the name `getAboutUsData`. 
+ * 
+ * [Documentation: Customizing queries](https://github.com/remkoj/optimizely-dxp-clients/blob/main/packages/optimizely-graph-functions/docs/customizing_queries.md)
+ */
+export const AboutUsPage : CmsComponent<getAboutUsDataQuery> = ({ data }) => {
+    const componentName = 'AboutUsPageType'
+    const componentInfo = 'created for testing in about page to use this content type'
+    return <div className="mx-auto px-2 container">
+        <div className="font-bold italic">{ componentName }</div>
+        <div>{ componentInfo }</div>
+        { Object.getOwnPropertyNames(data).length > 0 && <pre className="w-full overflow-x-hidden font-mono text-sm bg-slate-200 p-2 rounded-sm border border-solid border-slate-900 text-slate-900">{ JSON.stringify(data, undefined, 4) }</pre> }
+    </div>
+}
+AboutUsPage.displayName = "AboutUsPageType (_page/AboutUs)"
+AboutUsPage.getDataQuery = () => getAboutUsDataDocument
+AboutUsPage.getMetaData = async (contentLink, locale, client) => {
+    const sdk = getSdk(client);
+    // Add your metadata logic here
+    return {}
+}
+
+export default AboutUsPage

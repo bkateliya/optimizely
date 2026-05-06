@@ -1,0 +1,27 @@
+{
+  "key": "HztlCardComponent",
+  "displayName": "Hztl Card Component",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "Title": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "Card Title",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 0,
+      "maxLength": 0
+    }
+  }
+}

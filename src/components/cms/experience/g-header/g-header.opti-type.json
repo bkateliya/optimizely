@@ -1,0 +1,43 @@
+{
+  "key": "GHeader",
+  "displayName": "JC Header Global",
+  "description": "Blank Experience",
+  "baseType": "_experience",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "DesireHeader": {
+      "type": "array",
+      "displayName": "Header Type",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "GlobalHeader",
+          "LandingHeader"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "BlankExperienceSeoSettings": {
+      "type": "component",
+      "contentType": "PageSeoSettings",
+      "displayName": "SEO settings",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "SeoSettings",
+      "sortOrder": 10
+    }
+  }
+}

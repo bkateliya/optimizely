@@ -1,0 +1,56 @@
+{
+  "key": "Product",
+  "displayName": "Product",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "ProductName": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "ProductName",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "Description": {
+      "type": "string",
+      "displayName": "Description",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "Price": {
+      "type": "integer",
+      "displayName": "Price",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "ProductImage": {
+      "type": "contentReference",
+      "contentType": "ImageElement",
+      "displayName": "ProductImage",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "allowedTypes": [],
+      "restrictedTypes": []
+    }
+  }
+}

@@ -586,5 +586,81 @@
   {
     "propertyName": "AltText",
     "propertyType": "string"
+  },
+  {
+    "propertyName": "DesireHeader",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "Header",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "Subheader",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "Body",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "Footer",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "sampleHeroBannerBlock",
+    "propertyType": "component"
+  },
+  {
+    "propertyName": "Descripition",
+    "propertyType": "richText"
+  },
+  {
+    "propertyName": "LogoUrl",
+    "propertyType": "url"
+  },
+  {
+    "propertyName": "LogoImage",
+    "propertyType": "component"
+  },
+  {
+    "propertyName": "NavText",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "TextRichText",
+    "propertyType": "richText"
+  },
+  {
+    "propertyName": "Image",
+    "propertyType": "contentReference"
+  },
+  {
+    "propertyName": "LogoUrlLink",
+    "propertyType": "link"
+  },
+  {
+    "propertyName": "ProductName",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "Price",
+    "propertyType": "integer"
+  },
+  {
+    "propertyName": "ProductImage",
+    "propertyType": "contentReference"
+  },
+  {
+    "propertyName": "Items",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "LinkUrl",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "LinkText",
+    "propertyType": "string"
   }
 ]

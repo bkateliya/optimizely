@@ -1,0 +1,8 @@
+fragment ContinueReadingComponentData on ContinueReadingComponent {
+  topline
+  shared
+  heading
+  content {
+    ...IContentData
+  }
+}

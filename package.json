@@ -6,8 +6,9 @@
   "packageManager": "yarn@4.13.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && opti-graph webhook:create",
-    "build:full": "graphql-codegen && next build && opti-graph webhook:create",
+    "build": "next build",
+    "build:full": "graphql-codegen && next build",
+    "build:with-webhook": "next build && opti-graph webhook:create",
     "sdk:update": "yarn sdks vscode && opti-cms schema:vscode",
     "start": "next start",
     "lint": "next lint",

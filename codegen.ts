@@ -26,8 +26,6 @@ const config: CodegenConfig = {
         './src/gql/': {
             preset: OptimizelyGraphPreset,
             presetConfig: {
-                // We're not exporting any functions, it's no longer 
-                // needed
                 functions: [],
                 // By default the preset will generate recursive queries
                 // untill multiple recursions are supported, this needs to

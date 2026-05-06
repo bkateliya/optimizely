@@ -1,0 +1,34 @@
+fragment ProductsData on Products {
+  Heading
+  Items {
+    ...IContentData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CarouselBlockData
+    ...ContentRecsElementData
+    ...GlobalHeaderData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...HztlCardComponentData
+    ...HztlPageSEOSettingsData
+    ...HztlPromoData
+    ...ImageElementData
+    ...LandingHeaderData
+    ...LayoutSettingsBlockData
+    ...MegaMenuGroupBlockData
+    ...MenuNavigationBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...ProductData
+    ...PromoCardData
+    ...QuoteBlockData
+    ...RichTextElementData
+    ...SampleHeroBannerData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...VideoElementData
+    ...testData
+  }
+}

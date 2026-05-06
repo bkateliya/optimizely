@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { getServerContext } from "@remkoj/optimizely-cms-react/rsc";
 
 import Header from "@/components/header";
 
@@ -17,9 +16,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { locale } = getServerContext();
   return (
-    <html lang={locale ?? "en"}>
+    <html lang={process.env.NEXT_PUBLIC_DEFAULT_LOCALE ?? "en"}>
       <body className={inter.className}>
         <Header />
         <main>{children}</main>

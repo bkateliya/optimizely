@@ -1,10 +1,8 @@
 import { createEditPageComponent as createEditPage } from "@remkoj/optimizely-cms-nextjs/preview";
 import factory from '@/components/factory'
 import { createClient } from '@remkoj/optimizely-graph-client'
-import { getContentById } from "@/gql/functions";
 
 const Page = createEditPage(factory, {
-    loader: getContentById,
     clientFactory: (token?: string) => createClient(undefined, token, { cache: false, queryCache: false, nextJsFetchDirectives: true })
 })
 

@@ -1,10 +1,43 @@
 import { draftMode } from "next/headers";
 import { createPage } from "@remkoj/optimizely-cms-nextjs/page";
 import { createClient, AuthMode } from "@remkoj/optimizely-graph-client";
+import { isNonEmptyString } from "@remkoj/optimizely-cms-react/rsc";
+import type { ChannelDefinition } from "@remkoj/optimizely-graph-client/channels";
 
-// Import parts from the build
-import { getContentByPath } from "@/gql/functions";
 import factory from "@/components/factory";
+
+const defaultLocaleSlug =
+  process.env.NEXT_PUBLIC_DEFAULT_LOCALE ?? "en";
+
+/**
+ * Map Next optional catch-all params to a CMS URL path.
+ * Bare "/" must become "/{locale}/" because SaaS routes are locale-prefixed.
+ */
+async function propsToCmsPath(
+  props: {
+    params: Promise<Record<string, string | string[] | undefined>>;
+    searchParams: Promise<Record<string, string | string[] | undefined>>;
+  },
+  channel?: ChannelDefinition
+): Promise<string | null> {
+  const params = await props.params;
+  const slugs = [params.lang, ...(params.path ?? [])]
+    .filter(isNonEmptyString)
+    .filter((x) => !x.startsWith(encodeURIComponent("var:")))
+    .map((x) => decodeURIComponent(x));
+  if (slugs.length === 0) {
+    if (channel) {
+      const slug =
+        channel.localeToSlug(channel.defaultLocale) ?? defaultLocaleSlug;
+      return `/${slug}/`;
+    }
+    return `/${defaultLocaleSlug}/`;
+  }
+  const fullPath = !slugs[slugs.length - 1].includes(".")
+    ? "/" + slugs.join("/") + "/"
+    : "/" + slugs.join("/");
+  return fullPath;
+}
 
 // Read the URLs from the environment
 const netlifyUrl = process.env.URL;
@@ -25,13 +58,7 @@ const { CmsPage, generateMetadata, generateStaticParams } = createPage(
      */
     channel: channelId,
 
-    /**
-     * Pass in the `getContentByPath` method that has been generated
-     * by GraphQL Codegen. If omitted, the application will use the Router to
-     * resolve the content item and then use the CmsComponent from the
-     * factory to load the content specifically for the resolved content item.
-     */
-    getContentByPath,
+    propsToCmsPath,
 
     /**
      * The client factory to be used when a new GraphQL client is required

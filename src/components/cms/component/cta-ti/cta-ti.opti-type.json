@@ -1,0 +1,23 @@
+{
+  "key": "CTATi",
+  "displayName": "CTA-Ti",
+  "description": "This is Texas CTA",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "CTA": {
+      "type": "url",
+      "displayName": "CTA - Display name",
+      "description": "CTA - Help text",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "key": "SecondTiPage",
+  "displayName": "SecondTiPage- Display Name",
+  "description": "",
+  "baseType": "_page",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "SecondPageTiContentArea": {
+      "type": "array",
+      "displayName": "SecondPageTi",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

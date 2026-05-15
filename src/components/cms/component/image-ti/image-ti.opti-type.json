@@ -1,0 +1,27 @@
+{
+  "key": "ImageTi",
+  "displayName": "Image-Ti",
+  "description": "This is Image component",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "Image": {
+      "type": "contentReference",
+      "displayName": "Display name - Image",
+      "description": "Help text - Image",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "allowedTypes": [
+        "_image"
+      ],
+      "restrictedTypes": []
+    }
+  }
+}

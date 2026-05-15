@@ -18,11 +18,7 @@ import { getSdk } from "@/gql/client"
 export const BlankExperienceExperience : CmsComponent<getBlankExperienceDataQuery> = ({ data, ctx }) => {
   if (ctx) ctx.editableContentIsExperience = true
   const composition = getFragmentData(ExperienceDataFragmentDoc, data).composition
-  const componentName = 'Blank Experience'
-  const componentInfo = 'An experience without a predefined layout.'
-  return <CmsEditable as="div" className="mx-auto px-2 container" cmsFieldName="unstructuredData" ctx={ctx}>
-      <div className="font-bold italic">{ componentName }</div>
-      <div>{ componentInfo }</div>
+  return <CmsEditable as="div" className="mx-auto w-full px-2 container" cmsFieldName="unstructuredData" ctx={ctx}>
       { composition && isNode(composition) && <OptimizelyComposition node={composition} ctx={ctx} /> }
   </CmsEditable>
 }

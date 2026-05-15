@@ -1,0 +1,26 @@
+{
+  "key": "mobileDetail",
+  "displayName": "Mobile Detail",
+  "description": "This is a dummy mobile details page created by Rahul Dubey for learning purpose.",
+  "baseType": "_page",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "MobileDeatailBlock": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "MobileDeatailBlock",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

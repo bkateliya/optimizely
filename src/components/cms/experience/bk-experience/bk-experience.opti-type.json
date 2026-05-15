@@ -1,0 +1,15 @@
+{
+  "key": "BK_Experience",
+  "displayName": "BK Experience",
+  "description": "",
+  "baseType": "_experience",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {}
+}

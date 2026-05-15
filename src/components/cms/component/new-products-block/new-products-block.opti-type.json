@@ -1,0 +1,65 @@
+{
+  "key": "NewProductsBlock",
+  "displayName": "New Products Block",
+  "description": "A carousel block displaying a list of new products with a heading and a View All link",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "Heading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Heading",
+      "description": "Section heading displayed above the product carousel (e.g. New products)",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -400,
+      "indexingType": "searchable"
+    },
+    "ViewAllLabel": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "View All Label",
+      "description": "Label for the View All link (e.g. View all new products)",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -300
+    },
+    "ViewAllUrl": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "View All URL",
+      "description": "URL for the View All link",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -200
+    },
+    "Products": {
+      "type": "array",
+      "displayName": "Products",
+      "description": "List of product cards shown in the carousel",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "ProductCard"
+        ],
+        "restrictedTypes": [
+          "LayoutSettingsBlock"
+        ]
+      }
+    }
+  }
+}

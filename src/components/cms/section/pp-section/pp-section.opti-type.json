@@ -1,0 +1,15 @@
+{
+  "key": "PPSection",
+  "displayName": "PP Section",
+  "description": "",
+  "baseType": "_section",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "contracts": [],
+  "properties": {}
+}

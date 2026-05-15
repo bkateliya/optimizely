@@ -662,5 +662,133 @@
   {
     "propertyName": "LinkText",
     "propertyType": "string"
+  },
+  {
+    "propertyName": "categoryChoice",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "SecondPageTiContentArea",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "TitleDescription",
+    "propertyType": "component"
+  },
+  {
+    "propertyName": "CTA",
+    "propertyType": "component"
+  },
+  {
+    "propertyName": "ImageComponent",
+    "propertyType": "component"
+  },
+  {
+    "propertyName": "MobileDeatailBlock",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "CTAUrl",
+    "propertyType": "url"
+  },
+  {
+    "propertyName": "FaqItems",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "Question",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "Answer",
+    "propertyType": "richText"
+  },
+  {
+    "propertyName": "label",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "input",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "CallToAction",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "CallToActionUrl",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "Theme",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "MobileCTALink",
+    "propertyType": "url"
+  },
+  {
+    "propertyName": "Mobile",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "ViewAllLabel",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "ViewAllUrl",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "Products",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "BadgeLabel",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "Category",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "Status",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "PriceString",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "ProductUrl",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "CardList",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "SingleCard",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "SEO",
+    "propertyType": "component"
+  },
+  {
+    "propertyName": "NPTitle",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "NPMain",
+    "propertyType": "content"
+  },
+  {
+    "propertyName": "subTitle",
+    "propertyType": "string"
+  },
+  {
+    "propertyName": "BlogSection",
+    "propertyType": "contentReference"
   }
 ]

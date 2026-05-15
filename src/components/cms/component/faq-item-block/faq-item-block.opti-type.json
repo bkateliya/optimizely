@@ -1,0 +1,34 @@
+{
+  "key": "FaqItemBlock",
+  "displayName": "FAQ Item",
+  "description": "A single FAQ question and answer pair",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "Question": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Question",
+      "description": "The FAQ question",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "Answer": {
+      "type": "richText",
+      "displayName": "Answer",
+      "description": "The answer to the FAQ question",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10,
+      "indexingType": "searchable"
+    }
+  }
+}

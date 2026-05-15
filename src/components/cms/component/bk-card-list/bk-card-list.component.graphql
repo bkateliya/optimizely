@@ -1,0 +1,9 @@
+# Overrides preset output: recursive ...BKCardListData inside CardList is invalid
+# GraphQL and can make page queries return no data once BKCardList is used.
+fragment BKCardListData on BKCardList {
+  Heading
+  CardList {
+    ...IContentData
+    ...BKCardData
+  }
+}

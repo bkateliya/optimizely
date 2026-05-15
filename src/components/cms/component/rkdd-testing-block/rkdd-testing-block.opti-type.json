@@ -1,0 +1,13 @@
+{
+  "key": "RKDDTestingBlock",
+  "displayName": "Display name is RKDDTestingBlock",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {}
+}

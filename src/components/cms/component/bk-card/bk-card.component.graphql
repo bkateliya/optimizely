@@ -1,0 +1,3 @@
+fragment BKCardData on BKCard {
+  Heading
+}

@@ -1,0 +1,46 @@
+{
+  "key": "TiPageTemplate",
+  "displayName": "TiPageTemplateDisplayName",
+  "description": "",
+  "baseType": "_page",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "TitleDescription": {
+      "type": "component",
+      "contentType": "TitleDescriptionTi",
+      "displayName": "TitleDescription",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100
+    },
+    "CTA": {
+      "type": "component",
+      "contentType": "CTATi",
+      "displayName": "CTA",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    },
+    "Image": {
+      "type": "component",
+      "contentType": "ImageTi",
+      "displayName": "Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

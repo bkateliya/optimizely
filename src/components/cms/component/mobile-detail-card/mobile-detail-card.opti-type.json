@@ -1,0 +1,27 @@
+{
+  "key": "MobileDetailCard",
+  "displayName": "Mobile Detail Card",
+  "description": "Dummy Mobile Detail Card",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled",
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "Mobile": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Mobile",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

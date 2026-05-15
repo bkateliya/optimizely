@@ -1,0 +1,36 @@
+{
+  "key": "LabelInput",
+  "displayName": "LabelInput",
+  "description": "label & Input field as for form i hve made",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "label": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Label",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100
+    },
+    "input": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Input",
+      "description": "Enter Text Here",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

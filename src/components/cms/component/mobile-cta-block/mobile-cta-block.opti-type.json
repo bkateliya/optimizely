@@ -1,0 +1,26 @@
+{
+  "key": "MobileCTABlock",
+  "displayName": "Mobile CTA Block",
+  "description": "Dummy Mobile CTA Block",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled",
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "MobileCTALink": {
+      "type": "url",
+      "displayName": "MobileCTABlockDispalyName",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 0
+    }
+  }
+}

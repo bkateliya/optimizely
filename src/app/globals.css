@@ -4,6 +4,12 @@
  * Optimizely SDK Error, shown in debug mode by the default component factory
  * implementation when the component is not found.
  */
+ 
+:root {
+    --pl-page-background-color-primary: #ff0000;
+   
+    /* ... rest of site 1 exactly as you pasted ... */
+}
 .opti-error {
     box-sizing: border-box;
     margin-top: 2rem;
@@ -22,4 +28,15 @@
 }
 .opti-error::before {
     content: "‼ ";
+}
+
+root {
+    --pl-page-background-color-primary: #ff0000;
+   
+    /* ... rest of site 1 exactly as you pasted ... */
+}
+[data-theme="site-2"] {
+    --pl-page-background-color-primary: #00ffff;
+    
+    /* ... rest of site 1 exactly as you pasted ... */
 }

@@ -1,0 +1,98 @@
+{
+  "key": "ProductCard",
+  "displayName": "Product Card",
+  "description": "Individual product card used inside the New Products Block",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "BadgeLabel": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Badge Label",
+      "description": "Label shown on the top-left of the card (e.g. NEW)",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -500
+    },
+    "Image": {
+      "type": "contentReference",
+      "contentType": "ImageMedia",
+      "displayName": "Product Image",
+      "description": "Product image",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -400,
+      "allowedTypes": [],
+      "restrictedTypes": []
+    },
+    "Category": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Category",
+      "description": "Product category label shown above the product name (e.g. THERMAL FAN CONTROLLERS)",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -300
+    },
+    "ProductName": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Product Name",
+      "description": "Product part number or name (e.g. TCA9847)",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -200,
+      "indexingType": "searchable"
+    },
+    "Status": {
+      "type": "string",
+      "format": "selectOne",
+      "displayName": "Status",
+      "description": "Product lifecycle status shown next to the product name",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": -100
+    },
+    "Description": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Description",
+      "description": "Short one-line product description",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "indexingType": "searchable"
+    },
+    "Price": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Price",
+      "description": "Price text displayed on the card (e.g. Approx. price (USD) 1ku | 0.72)",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100
+    },
+    "ProductUrl": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Product URL",
+      "description": "URL that the card links to when clicked",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 200
+    }
+  }
+}

@@ -4,57 +4,6 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
 import type { GraphQLClient, RequestOptions } from 'graphql-request';
 import gql from 'graphql-tag';
 type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
-export const CmpImageAssetInfoFragmentDoc : DocumentNode<Schema.CmpImageAssetInfoFragment, unknown> = gql`
-    fragment CmpImageAssetInfo on cmp_PublicImageAsset {
-  __typename
-  Title
-  AltText
-  Width
-  Height
-  Url
-  Renditions {
-    Name
-    Width
-    Height
-    Url
-  }
-}
-    `;
-export const CmpVideoAssetInfoFragmentDoc : DocumentNode<Schema.CmpVideoAssetInfoFragment, unknown> = gql`
-    fragment CmpVideoAssetInfo on cmp_PublicVideoAsset {
-  Title
-  AltText
-  Url
-  Renditions {
-    Name
-    Width
-    Height
-    Url
-  }
-}
-    `;
-export const PageSeoSettingsPropertyDataFragmentDoc : DocumentNode<Schema.PageSeoSettingsPropertyDataFragment, unknown> = gql`
-    fragment PageSeoSettingsPropertyData on PageSeoSettingsProperty {
-  MetaTitle
-  MetaDescription
-  MetaKeywords
-  SharingImage {
-    key
-    url {
-      type
-      base
-      default
-    }
-    item {
-      __typename
-      ...CmpImageAssetInfo
-      ...CmpVideoAssetInfo
-    }
-  }
-  GraphType
-}
-    ${CmpImageAssetInfoFragmentDoc}
-${CmpVideoAssetInfoFragmentDoc}`;
 export const IContentDataFragmentDoc : DocumentNode<Schema.IContentDataFragment, unknown> = gql`
     fragment IContentData on _IContent {
   _metadata {
@@ -82,6 +31,35 @@ export const ImageMediaDataFragmentDoc : DocumentNode<Schema.ImageMediaDataFragm
 export const VideoMediaDataFragmentDoc : DocumentNode<Schema.VideoMediaDataFragment, unknown> = gql`
     fragment VideoMediaData on VideoMedia {
   __typename
+}
+    `;
+export const CmpImageAssetInfoFragmentDoc : DocumentNode<Schema.CmpImageAssetInfoFragment, unknown> = gql`
+    fragment CmpImageAssetInfo on cmp_PublicImageAsset {
+  __typename
+  Title
+  AltText
+  Width
+  Height
+  Url
+  Renditions {
+    Name
+    Width
+    Height
+    Url
+  }
+}
+    `;
+export const CmpVideoAssetInfoFragmentDoc : DocumentNode<Schema.CmpVideoAssetInfoFragment, unknown> = gql`
+    fragment CmpVideoAssetInfo on cmp_PublicVideoAsset {
+  Title
+  AltText
+  Url
+  Renditions {
+    Name
+    Width
+    Height
+    Url
+  }
 }
     `;
 export const ButtonBlockPropertyDataFragmentDoc : DocumentNode<Schema.ButtonBlockPropertyDataFragment, unknown> = gql`
@@ -165,6 +143,87 @@ ${ImageMediaDataFragmentDoc}
 ${VideoMediaDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}`;
+export const LanguagePromoBlockDataFragmentDoc : DocumentNode<Schema.LanguagePromoBlockDataFragment, unknown> = gql`
+    fragment LanguagePromoBlockData on LanguagePromoBlock {
+  Title
+  DescriptionRichText: Description {
+    json
+  }
+  CallToAction
+  CallToActionUrl
+  Theme
+}
+    `;
+export const ProductCardDataFragmentDoc : DocumentNode<Schema.ProductCardDataFragment, unknown> = gql`
+    fragment ProductCardData on ProductCard {
+  BadgeLabel
+  Image {
+    key
+    url {
+      type
+      base
+      default
+    }
+    item {
+      __typename
+      ...CmpImageAssetInfo
+      ...CmpVideoAssetInfo
+    }
+  }
+  Category
+  ProductName
+  Status
+  Description
+  PriceString: Price
+  ProductUrl
+}
+    ${CmpImageAssetInfoFragmentDoc}
+${CmpVideoAssetInfoFragmentDoc}`;
+export const NewProductsBlockDataFragmentDoc : DocumentNode<Schema.NewProductsBlockDataFragment, unknown> = gql`
+    fragment NewProductsBlockData on NewProductsBlock {
+  Heading
+  ViewAllLabel
+  ViewAllUrl
+  Products {
+    ...IContentData
+    ...ProductCardData
+  }
+}
+    ${IContentDataFragmentDoc}
+${ProductCardDataFragmentDoc}`;
+export const TitleDescriptionTiDataFragmentDoc : DocumentNode<Schema.TitleDescriptionTiDataFragment, unknown> = gql`
+    fragment TitleDescriptionTiData on TitleDescriptionTi {
+  Heading
+  Description
+}
+    `;
+export const bk_heroDataFragmentDoc : DocumentNode<Schema.bk_heroDataFragment, unknown> = gql`
+    fragment bk_heroData on bk_hero {
+  Heading
+  DescriptionRichText: Description {
+    json
+  }
+  Image {
+    key
+    url {
+      type
+      base
+      default
+    }
+    item {
+      __typename
+      ...CmpImageAssetInfo
+      ...CmpVideoAssetInfo
+    }
+  }
+  Link {
+    type
+    base
+    default
+  }
+}
+    ${CmpImageAssetInfoFragmentDoc}
+${CmpVideoAssetInfoFragmentDoc}`;
 export const ArticleListElementDataFragmentDoc : DocumentNode<Schema.ArticleListElementDataFragment, unknown> = gql`
     fragment ArticleListElementData on ArticleListElement {
   articleListCount
@@ -587,6 +646,41 @@ ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
 ${testDataFragmentDoc}`;
+export const BKCardDataFragmentDoc : DocumentNode<Schema.BKCardDataFragment, unknown> = gql`
+    fragment BKCardData on BKCard {
+  Heading
+}
+    `;
+export const BKCardListDataFragmentDoc : DocumentNode<Schema.BKCardListDataFragment, unknown> = gql`
+    fragment BKCardListData on BKCardList {
+  Heading
+  CardList {
+    ...IContentData
+    ...BKCardData
+  }
+}
+    ${IContentDataFragmentDoc}
+${BKCardDataFragmentDoc}`;
+export const LabelInputDataFragmentDoc : DocumentNode<Schema.LabelInputDataFragment, unknown> = gql`
+    fragment LabelInputData on LabelInput {
+  label
+  input
+}
+    `;
+export const MobileCTABlockDataFragmentDoc : DocumentNode<Schema.MobileCTABlockDataFragment, unknown> = gql`
+    fragment MobileCTABlockData on MobileCTABlock {
+  MobileCTALink {
+    type
+    base
+    default
+  }
+}
+    `;
+export const MobileDetailCardDataFragmentDoc : DocumentNode<Schema.MobileDetailCardDataFragment, unknown> = gql`
+    fragment MobileDetailCardData on MobileDetailCard {
+  Mobile
+}
+    `;
 export const CompositionNodeDataFragmentDoc : DocumentNode<Schema.CompositionNodeDataFragment, unknown> = gql`
     fragment CompositionNodeData on ICompositionNode {
   name: displayName
@@ -610,6 +704,11 @@ export const BlankSectionDataFragmentDoc : DocumentNode<Schema.BlankSectionDataF
   __typename
 }
     `;
+export const PPSectionDataFragmentDoc : DocumentNode<Schema.PPSectionDataFragment, unknown> = gql`
+    fragment PPSectionData on PPSection {
+  __typename
+}
+    `;
 export const ExperienceDataFragmentDoc : DocumentNode<Schema.ExperienceDataFragment, unknown> = gql`
     fragment ExperienceData on _IExperience {
   composition {
@@ -621,7 +720,13 @@ export const ExperienceDataFragmentDoc : DocumentNode<Schema.ExperienceDataFragm
           ...IContentData
           ...CarouselBlockData
           ...HeroBlockData
+          ...LanguagePromoBlockData
+          ...MobileCTABlockData
+          ...MobileDetailCardData
+          ...NewProductsBlockData
           ...SampleHeroBannerData
+          ...TitleDescriptionTiData
+          ...bk_heroData
         }
       }
       ... on CompositionStructureNode {
@@ -637,6 +742,8 @@ export const ExperienceDataFragmentDoc : DocumentNode<Schema.ExperienceDataFragm
                     component {
                       ...IContentData
                       ...ProductsData
+                      ...BKCardListData
+                      ...BKCardData
                       ...MegaMenuGroupBlockData
                       ...ArticleListElementData
                       ...CTAElementData
@@ -644,6 +751,9 @@ export const ExperienceDataFragmentDoc : DocumentNode<Schema.ExperienceDataFragm
                       ...HeadingElementData
                       ...HztlCardComponentData
                       ...ImageElementData
+                      ...LabelInputData
+                      ...MobileCTABlockData
+                      ...MobileDetailCardData
                       ...OdpEmbedBlockData
                       ...ParagraphElementData
                       ...ProductData
@@ -672,6 +782,7 @@ export const ExperienceDataFragmentDoc : DocumentNode<Schema.ExperienceDataFragm
         component {
           ...IContentData
           ...BlankSectionData
+          ...PPSectionData
         }
       }
     }
@@ -679,7 +790,13 @@ export const ExperienceDataFragmentDoc : DocumentNode<Schema.ExperienceDataFragm
 }
     ${CarouselBlockDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
+${bk_heroDataFragmentDoc}
 ${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
@@ -687,6 +804,9 @@ ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HztlCardComponentDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
@@ -697,7 +817,35 @@ ${VideoElementDataFragmentDoc}
 ${CompositionNodeDataFragmentDoc}
 ${FormElementDataFragmentDoc}
 ${IContentDataFragmentDoc}
-${BlankSectionDataFragmentDoc}`;
+${BlankSectionDataFragmentDoc}
+${PPSectionDataFragmentDoc}`;
+export const BK_ExperienceDataFragmentDoc : DocumentNode<Schema.BK_ExperienceDataFragment, unknown> = gql`
+    fragment BK_ExperienceData on BK_Experience {
+  ...ExperienceData
+}
+    ${ExperienceDataFragmentDoc}`;
+export const PageSeoSettingsPropertyDataFragmentDoc : DocumentNode<Schema.PageSeoSettingsPropertyDataFragment, unknown> = gql`
+    fragment PageSeoSettingsPropertyData on PageSeoSettingsProperty {
+  MetaTitle
+  MetaDescription
+  MetaKeywords
+  SharingImage {
+    key
+    url {
+      type
+      base
+      default
+    }
+    item {
+      __typename
+      ...CmpImageAssetInfo
+      ...CmpVideoAssetInfo
+    }
+  }
+  GraphType
+}
+    ${CmpImageAssetInfoFragmentDoc}
+${CmpVideoAssetInfoFragmentDoc}`;
 export const BlankExperienceDataFragmentDoc : DocumentNode<Schema.BlankExperienceDataFragment, unknown> = gql`
     fragment BlankExperienceData on BlankExperience {
   BlankExperienceSeoSettings {
@@ -733,16 +881,301 @@ ${GlobalHeaderDataFragmentDoc}
 ${LandingHeaderDataFragmentDoc}
 ${PageSeoSettingsPropertyDataFragmentDoc}
 ${ExperienceDataFragmentDoc}`;
+export const PPExperienceDataFragmentDoc : DocumentNode<Schema.PPExperienceDataFragment, unknown> = gql`
+    fragment PPExperienceData on PPExperience {
+  ...ExperienceData
+}
+    ${ExperienceDataFragmentDoc}`;
+export const CTATiDataFragmentDoc : DocumentNode<Schema.CTATiDataFragment, unknown> = gql`
+    fragment CTATiData on CTATi {
+  CTAUrl: CTA {
+    type
+    base
+    default
+  }
+}
+    `;
+export const FaqItemBlockDataFragmentDoc : DocumentNode<Schema.FaqItemBlockDataFragment, unknown> = gql`
+    fragment FaqItemBlockData on FaqItemBlock {
+  Question
+  Answer {
+    json
+  }
+}
+    `;
+export const FaqBlockDataFragmentDoc : DocumentNode<Schema.FaqBlockDataFragment, unknown> = gql`
+    fragment FaqBlockData on FaqBlock {
+  Heading
+  SubHeading
+  FaqItems {
+    ...IContentData
+    ...FaqItemBlockData
+  }
+}
+    ${IContentDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}`;
+export const ImageTiDataFragmentDoc : DocumentNode<Schema.ImageTiDataFragment, unknown> = gql`
+    fragment ImageTiData on ImageTi {
+  Image {
+    key
+    url {
+      type
+      base
+      default
+    }
+    item {
+      __typename
+      ...CmpImageAssetInfo
+      ...CmpVideoAssetInfo
+    }
+  }
+}
+    ${CmpImageAssetInfoFragmentDoc}
+${CmpVideoAssetInfoFragmentDoc}`;
+export const MobileDemoBlockDataFragmentDoc : DocumentNode<Schema.MobileDemoBlockDataFragment, unknown> = gql`
+    fragment MobileDemoBlockData on MobileDemoBlock {
+  __typename
+}
+    `;
+export const MyBannerBlockDataFragmentDoc : DocumentNode<Schema.MyBannerBlockDataFragment, unknown> = gql`
+    fragment MyBannerBlockData on MyBannerBlock {
+  Title
+  Description
+  Image {
+    key
+    url {
+      type
+      base
+      default
+    }
+    item {
+      __typename
+      ...CmpImageAssetInfo
+      ...CmpVideoAssetInfo
+    }
+  }
+}
+    ${CmpImageAssetInfoFragmentDoc}
+${CmpVideoAssetInfoFragmentDoc}`;
+export const RKDDTestingBlockDataFragmentDoc : DocumentNode<Schema.RKDDTestingBlockDataFragment, unknown> = gql`
+    fragment RKDDTestingBlockData on RKDDTestingBlock {
+  __typename
+}
+    `;
+export const testbannerDataFragmentDoc : DocumentNode<Schema.testbannerDataFragment, unknown> = gql`
+    fragment testbannerData on testbanner {
+  Heading
+}
+    `;
+export const AUHeaderDataFragmentDoc : DocumentNode<Schema.AUHeaderDataFragment, unknown> = gql`
+    fragment AUHeaderData on AUHeader {
+  heading
+  subTitle
+  content {
+    ...IContentData
+    ...ProductsData
+    ...BKCardListData
+    ...BKCardData
+    ...MegaMenuGroupBlockData
+    ...AUHeaderData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CTATiData
+    ...CarouselBlockData
+    ...ContentRecsElementData
+    ...FaqBlockData
+    ...FaqItemBlockData
+    ...GlobalHeaderData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...HztlCardComponentData
+    ...HztlPageSEOSettingsData
+    ...HztlPromoData
+    ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
+    ...LandingHeaderData
+    ...LanguagePromoBlockData
+    ...LayoutSettingsBlockData
+    ...MenuNavigationBlockData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...ProductData
+    ...ProductCardData
+    ...PromoCardData
+    ...QuoteBlockData
+    ...RKDDTestingBlockData
+    ...RichTextElementData
+    ...SampleHeroBannerData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...TitleDescriptionTiData
+    ...VideoElementData
+    ...bk_heroData
+    ...testData
+    ...testbannerData
+  }
+}
+    ${IContentDataFragmentDoc}
+${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${MegaMenuGroupBlockDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
+${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
+${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
+${GlobalHeaderDataFragmentDoc}
+${HeadingElementDataFragmentDoc}
+${HeroBlockDataFragmentDoc}
+${HztlCardComponentDataFragmentDoc}
+${HztlPageSEOSettingsDataFragmentDoc}
+${HztlPromoDataFragmentDoc}
+${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
+${LayoutSettingsBlockDataFragmentDoc}
+${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
+${OdpEmbedBlockDataFragmentDoc}
+${PageSeoSettingsDataFragmentDoc}
+${ParagraphElementDataFragmentDoc}
+${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
+${PromoCardDataFragmentDoc}
+${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
+${RichTextElementDataFragmentDoc}
+${SampleHeroBannerDataFragmentDoc}
+${TestimonialElementDataFragmentDoc}
+${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
+${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
+${testDataFragmentDoc}
+${testbannerDataFragmentDoc}`;
 export const AboutUsDataFragmentDoc : DocumentNode<Schema.AboutUsDataFragment, unknown> = gql`
     fragment AboutUsData on AboutUs {
   heading
   content {
     ...IContentData
+    ...ProductsData
+    ...BKCardListData
+    ...BKCardData
+    ...MegaMenuGroupBlockData
+    ...AUHeaderData
+    ...ArticleListElementData
+    ...ButtonBlockData
     ...CTAElementData
+    ...CTATiData
+    ...CarouselBlockData
+    ...ContentRecsElementData
+    ...FaqBlockData
+    ...FaqItemBlockData
+    ...GlobalHeaderData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...HztlCardComponentData
+    ...HztlPageSEOSettingsData
+    ...HztlPromoData
+    ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
+    ...LandingHeaderData
+    ...LanguagePromoBlockData
+    ...LayoutSettingsBlockData
+    ...MenuNavigationBlockData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...ProductData
+    ...ProductCardData
+    ...PromoCardData
+    ...QuoteBlockData
+    ...RKDDTestingBlockData
+    ...RichTextElementData
+    ...SampleHeroBannerData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...TitleDescriptionTiData
+    ...VideoElementData
+    ...bk_heroData
+    ...testData
+    ...testbannerData
   }
+  categoryChoice
 }
     ${IContentDataFragmentDoc}
-${CTAElementDataFragmentDoc}`;
+${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
+${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
+${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
+${GlobalHeaderDataFragmentDoc}
+${HeadingElementDataFragmentDoc}
+${HeroBlockDataFragmentDoc}
+${HztlCardComponentDataFragmentDoc}
+${HztlPageSEOSettingsDataFragmentDoc}
+${HztlPromoDataFragmentDoc}
+${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
+${LayoutSettingsBlockDataFragmentDoc}
+${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
+${OdpEmbedBlockDataFragmentDoc}
+${PageSeoSettingsDataFragmentDoc}
+${ParagraphElementDataFragmentDoc}
+${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
+${PromoCardDataFragmentDoc}
+${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
+${RichTextElementDataFragmentDoc}
+${SampleHeroBannerDataFragmentDoc}
+${TestimonialElementDataFragmentDoc}
+${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
+${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
+${testDataFragmentDoc}
+${testbannerDataFragmentDoc}`;
 export const ContinueReadingComponentDataFragmentDoc : DocumentNode<Schema.ContinueReadingComponentDataFragment, unknown> = gql`
     fragment ContinueReadingComponentData on ContinueReadingComponent {
   topline
@@ -778,24 +1211,41 @@ export const BlogPostPageDataFragmentDoc : DocumentNode<Schema.BlogPostPageDataF
   continueReading {
     ...IContentData
     ...ArticleListElementData
+    ...AUHeaderData
+    ...BKCardData
+    ...BKCardListData
+    ...bk_heroData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
     ...CTAElementData
+    ...CTATiData
+    ...FaqBlockData
+    ...FaqItemBlockData
     ...GlobalHeaderData
     ...HeadingElementData
     ...HztlCardComponentData
     ...HztlPageSEOSettingsData
     ...HztlPromoData
     ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
     ...LandingHeaderData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
     ...ParagraphElementData
     ...ProductData
-    ...ProductsData
+    ...ProductCardData
     ...PromoCardData
     ...RichTextElementData
+    ...RKDDTestingBlockData
     ...SampleHeroBannerData
     ...testData
+    ...testbannerData
     ...TestimonialElementData
+    ...TitleDescriptionTiData
     ...VideoElementData
     ...ButtonBlockData
     ...CarouselBlockData
@@ -805,6 +1255,7 @@ export const BlogPostPageDataFragmentDoc : DocumentNode<Schema.BlogPostPageDataF
     ...PageSeoSettingsData
     ...QuoteBlockData
     ...TextBlockData
+    ...LanguagePromoBlockData
   }
   SeoSettings {
     ...PageSeoSettingsPropertyData
@@ -814,24 +1265,41 @@ export const BlogPostPageDataFragmentDoc : DocumentNode<Schema.BlogPostPageDataF
 ${CmpVideoAssetInfoFragmentDoc}
 ${IContentDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${bk_heroDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${ContinueReadingComponentDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
 ${GlobalHeaderDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HztlCardComponentDataFragmentDoc}
 ${HztlPageSEOSettingsDataFragmentDoc}
 ${HztlPromoDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
 ${LandingHeaderDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
-${ProductsDataFragmentDoc}
+${ProductCardDataFragmentDoc}
 ${PromoCardDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
 ${SampleHeroBannerDataFragmentDoc}
 ${testDataFragmentDoc}
+${testbannerDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
@@ -841,6 +1309,7 @@ ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
 ${PageSeoSettingsPropertyDataFragmentDoc}`;
 export const GenericMediaDataFragmentDoc : DocumentNode<Schema.GenericMediaDataFragment, unknown> = gql`
     fragment GenericMediaData on GenericMedia {
@@ -860,12 +1329,18 @@ export const HomePageDataFragmentDoc : DocumentNode<Schema.HomePageDataFragment,
   Header {
     ...IContentData
     ...ProductsData
+    ...BKCardListData
+    ...BKCardData
     ...MegaMenuGroupBlockData
+    ...AUHeaderData
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CTATiData
     ...CarouselBlockData
     ...ContentRecsElementData
+    ...FaqBlockData
+    ...FaqItemBlockData
     ...GlobalHeaderData
     ...HeadingElementData
     ...HeroBlockData
@@ -873,44 +1348,75 @@ export const HomePageDataFragmentDoc : DocumentNode<Schema.HomePageDataFragment,
     ...HztlPageSEOSettingsData
     ...HztlPromoData
     ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
     ...LandingHeaderData
+    ...LanguagePromoBlockData
     ...LayoutSettingsBlockData
     ...MenuNavigationBlockData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...ProductData
+    ...ProductCardData
     ...PromoCardData
     ...QuoteBlockData
+    ...RKDDTestingBlockData
     ...RichTextElementData
     ...SampleHeroBannerData
     ...TestimonialElementData
     ...TextBlockData
+    ...TitleDescriptionTiData
     ...VideoElementData
+    ...bk_heroData
     ...testData
+    ...testbannerData
   }
   Subheader
   Body {
     ...IContentData
     ...ArticleListElementData
+    ...AUHeaderData
+    ...BKCardData
+    ...BKCardListData
+    ...bk_heroData
     ...ContentRecsElementData
     ...ContinueReadingComponentData
     ...CTAElementData
+    ...CTATiData
+    ...FaqBlockData
+    ...FaqItemBlockData
     ...GlobalHeaderData
     ...HeadingElementData
     ...HztlCardComponentData
     ...HztlPageSEOSettingsData
     ...HztlPromoData
     ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
     ...LandingHeaderData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
     ...ParagraphElementData
     ...ProductData
+    ...ProductCardData
     ...ProductsData
     ...PromoCardData
     ...RichTextElementData
+    ...RKDDTestingBlockData
     ...SampleHeroBannerData
     ...testData
+    ...testbannerData
     ...TestimonialElementData
+    ...TitleDescriptionTiData
     ...VideoElementData
     ...ButtonBlockData
     ...CarouselBlockData
@@ -920,6 +1426,7 @@ export const HomePageDataFragmentDoc : DocumentNode<Schema.HomePageDataFragment,
     ...PageSeoSettingsData
     ...QuoteBlockData
     ...TextBlockData
+    ...LanguagePromoBlockData
     ...LayoutSettingsBlockData
     ...MegaMenuGroupBlockData
     ...ImageMediaData
@@ -928,12 +1435,18 @@ export const HomePageDataFragmentDoc : DocumentNode<Schema.HomePageDataFragment,
   Footer {
     ...IContentData
     ...ProductsData
+    ...BKCardListData
+    ...BKCardData
     ...MegaMenuGroupBlockData
+    ...AUHeaderData
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CTATiData
     ...CarouselBlockData
     ...ContentRecsElementData
+    ...FaqBlockData
+    ...FaqItemBlockData
     ...GlobalHeaderData
     ...HeadingElementData
     ...HeroBlockData
@@ -941,21 +1454,34 @@ export const HomePageDataFragmentDoc : DocumentNode<Schema.HomePageDataFragment,
     ...HztlPageSEOSettingsData
     ...HztlPromoData
     ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
     ...LandingHeaderData
+    ...LanguagePromoBlockData
     ...LayoutSettingsBlockData
     ...MenuNavigationBlockData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...ProductData
+    ...ProductCardData
     ...PromoCardData
     ...QuoteBlockData
+    ...RKDDTestingBlockData
     ...RichTextElementData
     ...SampleHeroBannerData
     ...TestimonialElementData
     ...TextBlockData
+    ...TitleDescriptionTiData
     ...VideoElementData
+    ...bk_heroData
     ...testData
+    ...testbannerData
   }
   sampleHeroBannerBlock {
     ...SampleHeroBannerPropertyData
@@ -966,12 +1492,18 @@ ${ImageMediaDataFragmentDoc}
 ${GenericMediaDataFragmentDoc}
 ${IContentDataFragmentDoc}
 ${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
 ${GlobalHeaderDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -979,33 +1511,52 @@ ${HztlCardComponentDataFragmentDoc}
 ${HztlPageSEOSettingsDataFragmentDoc}
 ${HztlPromoDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
 ${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
 ${PromoCardDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${SampleHeroBannerDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
 ${testDataFragmentDoc}
+${testbannerDataFragmentDoc}
 ${SampleHeroBannerPropertyDataFragmentDoc}`;
 export const LandingPageDataFragmentDoc : DocumentNode<Schema.LandingPageDataFragment, unknown> = gql`
     fragment LandingPageData on LandingPage {
   TopContentArea {
     ...IContentData
     ...ProductsData
+    ...BKCardListData
+    ...BKCardData
     ...MegaMenuGroupBlockData
+    ...AUHeaderData
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CTATiData
     ...CarouselBlockData
     ...ContentRecsElementData
+    ...FaqBlockData
+    ...FaqItemBlockData
     ...GlobalHeaderData
     ...HeadingElementData
     ...HeroBlockData
@@ -1013,31 +1564,50 @@ export const LandingPageDataFragmentDoc : DocumentNode<Schema.LandingPageDataFra
     ...HztlPageSEOSettingsData
     ...HztlPromoData
     ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
     ...LandingHeaderData
+    ...LanguagePromoBlockData
     ...LayoutSettingsBlockData
     ...MenuNavigationBlockData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...ProductData
+    ...ProductCardData
     ...PromoCardData
     ...QuoteBlockData
+    ...RKDDTestingBlockData
     ...RichTextElementData
     ...SampleHeroBannerData
     ...TestimonialElementData
     ...TextBlockData
+    ...TitleDescriptionTiData
     ...VideoElementData
+    ...bk_heroData
     ...testData
+    ...testbannerData
   }
   MainContentArea {
     ...IContentData
     ...ProductsData
+    ...BKCardListData
+    ...BKCardData
     ...MegaMenuGroupBlockData
+    ...AUHeaderData
     ...ArticleListElementData
     ...ButtonBlockData
     ...CTAElementData
+    ...CTATiData
     ...CarouselBlockData
     ...ContentRecsElementData
+    ...FaqBlockData
+    ...FaqItemBlockData
     ...GlobalHeaderData
     ...HeadingElementData
     ...HeroBlockData
@@ -1045,21 +1615,34 @@ export const LandingPageDataFragmentDoc : DocumentNode<Schema.LandingPageDataFra
     ...HztlPageSEOSettingsData
     ...HztlPromoData
     ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
     ...LandingHeaderData
+    ...LanguagePromoBlockData
     ...LayoutSettingsBlockData
     ...MenuNavigationBlockData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
     ...OdpEmbedBlockData
     ...PageSeoSettingsData
     ...ParagraphElementData
     ...ProductData
+    ...ProductCardData
     ...PromoCardData
     ...QuoteBlockData
+    ...RKDDTestingBlockData
     ...RichTextElementData
     ...SampleHeroBannerData
     ...TestimonialElementData
     ...TextBlockData
+    ...TitleDescriptionTiData
     ...VideoElementData
+    ...bk_heroData
     ...testData
+    ...testbannerData
   }
   SeoSettings {
     ...PageSeoSettingsPropertyData
@@ -1067,12 +1650,18 @@ export const LandingPageDataFragmentDoc : DocumentNode<Schema.LandingPageDataFra
 }
     ${IContentDataFragmentDoc}
 ${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
 ${GlobalHeaderDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1080,22 +1669,295 @@ ${HztlCardComponentDataFragmentDoc}
 ${HztlPageSEOSettingsDataFragmentDoc}
 ${HztlPromoDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
 ${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
 ${PromoCardDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${SampleHeroBannerDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
 ${testDataFragmentDoc}
+${testbannerDataFragmentDoc}
 ${PageSeoSettingsPropertyDataFragmentDoc}`;
+export const NPHomePageDataFragmentDoc : DocumentNode<Schema.NPHomePageDataFragment, unknown> = gql`
+    fragment NPHomePageData on NPHomePage {
+  NPTitle
+  NPMain {
+    ...IContentData
+    ...ProductsData
+    ...BKCardListData
+    ...BKCardData
+    ...MegaMenuGroupBlockData
+    ...AUHeaderData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CTATiData
+    ...CarouselBlockData
+    ...ContentRecsElementData
+    ...FaqBlockData
+    ...FaqItemBlockData
+    ...GlobalHeaderData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...HztlCardComponentData
+    ...HztlPageSEOSettingsData
+    ...HztlPromoData
+    ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
+    ...LandingHeaderData
+    ...LanguagePromoBlockData
+    ...LayoutSettingsBlockData
+    ...MenuNavigationBlockData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...ProductData
+    ...ProductCardData
+    ...PromoCardData
+    ...QuoteBlockData
+    ...RKDDTestingBlockData
+    ...RichTextElementData
+    ...SampleHeroBannerData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...TitleDescriptionTiData
+    ...VideoElementData
+    ...bk_heroData
+    ...testData
+    ...testbannerData
+  }
+}
+    ${IContentDataFragmentDoc}
+${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
+${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
+${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
+${GlobalHeaderDataFragmentDoc}
+${HeadingElementDataFragmentDoc}
+${HeroBlockDataFragmentDoc}
+${HztlCardComponentDataFragmentDoc}
+${HztlPageSEOSettingsDataFragmentDoc}
+${HztlPromoDataFragmentDoc}
+${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
+${LayoutSettingsBlockDataFragmentDoc}
+${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
+${OdpEmbedBlockDataFragmentDoc}
+${PageSeoSettingsDataFragmentDoc}
+${ParagraphElementDataFragmentDoc}
+${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
+${PromoCardDataFragmentDoc}
+${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
+${RichTextElementDataFragmentDoc}
+${SampleHeroBannerDataFragmentDoc}
+${TestimonialElementDataFragmentDoc}
+${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
+${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
+${testDataFragmentDoc}
+${testbannerDataFragmentDoc}`;
+export const SecondTiPageDataFragmentDoc : DocumentNode<Schema.SecondTiPageDataFragment, unknown> = gql`
+    fragment SecondTiPageData on SecondTiPage {
+  SecondPageTiContentArea {
+    ...IContentData
+    ...ProductsData
+    ...BKCardListData
+    ...BKCardData
+    ...MegaMenuGroupBlockData
+    ...AUHeaderData
+    ...ArticleListElementData
+    ...ButtonBlockData
+    ...CTAElementData
+    ...CTATiData
+    ...CarouselBlockData
+    ...ContentRecsElementData
+    ...FaqBlockData
+    ...FaqItemBlockData
+    ...GlobalHeaderData
+    ...HeadingElementData
+    ...HeroBlockData
+    ...HztlCardComponentData
+    ...HztlPageSEOSettingsData
+    ...HztlPromoData
+    ...ImageElementData
+    ...ImageTiData
+    ...LabelInputData
+    ...LandingHeaderData
+    ...LanguagePromoBlockData
+    ...LayoutSettingsBlockData
+    ...MenuNavigationBlockData
+    ...MobileCTABlockData
+    ...MobileDemoBlockData
+    ...MobileDetailCardData
+    ...MyBannerBlockData
+    ...NewProductsBlockData
+    ...OdpEmbedBlockData
+    ...PageSeoSettingsData
+    ...ParagraphElementData
+    ...ProductData
+    ...ProductCardData
+    ...PromoCardData
+    ...QuoteBlockData
+    ...RKDDTestingBlockData
+    ...RichTextElementData
+    ...SampleHeroBannerData
+    ...TestimonialElementData
+    ...TextBlockData
+    ...TitleDescriptionTiData
+    ...VideoElementData
+    ...bk_heroData
+    ...testData
+    ...testbannerData
+  }
+}
+    ${IContentDataFragmentDoc}
+${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
+${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
+${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
+${GlobalHeaderDataFragmentDoc}
+${HeadingElementDataFragmentDoc}
+${HeroBlockDataFragmentDoc}
+${HztlCardComponentDataFragmentDoc}
+${HztlPageSEOSettingsDataFragmentDoc}
+${HztlPromoDataFragmentDoc}
+${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
+${LayoutSettingsBlockDataFragmentDoc}
+${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
+${OdpEmbedBlockDataFragmentDoc}
+${PageSeoSettingsDataFragmentDoc}
+${ParagraphElementDataFragmentDoc}
+${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
+${PromoCardDataFragmentDoc}
+${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
+${RichTextElementDataFragmentDoc}
+${SampleHeroBannerDataFragmentDoc}
+${TestimonialElementDataFragmentDoc}
+${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
+${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
+${testDataFragmentDoc}
+${testbannerDataFragmentDoc}`;
+export const TitleDescriptionTiPropertyDataFragmentDoc : DocumentNode<Schema.TitleDescriptionTiPropertyDataFragment, unknown> = gql`
+    fragment TitleDescriptionTiPropertyData on TitleDescriptionTiProperty {
+  Heading
+  Description
+}
+    `;
+export const CTATiPropertyDataFragmentDoc : DocumentNode<Schema.CTATiPropertyDataFragment, unknown> = gql`
+    fragment CTATiPropertyData on CTATiProperty {
+  CTAUrl: CTA {
+    type
+    base
+    default
+  }
+}
+    `;
+export const ImageTiPropertyDataFragmentDoc : DocumentNode<Schema.ImageTiPropertyDataFragment, unknown> = gql`
+    fragment ImageTiPropertyData on ImageTiProperty {
+  Image {
+    key
+    url {
+      type
+      base
+      default
+    }
+    item {
+      __typename
+      ...CmpImageAssetInfo
+      ...CmpVideoAssetInfo
+    }
+  }
+}
+    ${CmpImageAssetInfoFragmentDoc}
+${CmpVideoAssetInfoFragmentDoc}`;
+export const TiPageTemplateDataFragmentDoc : DocumentNode<Schema.TiPageTemplateDataFragment, unknown> = gql`
+    fragment TiPageTemplateData on TiPageTemplate {
+  TitleDescription {
+    ...TitleDescriptionTiPropertyData
+  }
+  CTA {
+    ...CTATiPropertyData
+  }
+  ImageComponent: Image {
+    ...ImageTiPropertyData
+  }
+}
+    ${TitleDescriptionTiPropertyDataFragmentDoc}
+${CTATiPropertyDataFragmentDoc}
+${ImageTiPropertyDataFragmentDoc}`;
+export const mobileDetailDataFragmentDoc : DocumentNode<Schema.mobileDetailDataFragment, unknown> = gql`
+    fragment mobileDetailData on mobileDetail {
+  MobileDeatailBlock
+}
+    `;
 export const IElementDataFragmentDoc : DocumentNode<Schema.IElementDataFragment, unknown> = gql`
     fragment IElementData on _IComponent {
   _metadata {
@@ -1165,6 +2027,8 @@ export const SectionCompositionDataFragmentDoc : DocumentNode<Schema.SectionComp
                 component {
                   ...IContentData
                   ...ProductsData
+                  ...BKCardListData
+                  ...BKCardData
                   ...MegaMenuGroupBlockData
                   ...ArticleListElementData
                   ...CTAElementData
@@ -1172,6 +2036,9 @@ export const SectionCompositionDataFragmentDoc : DocumentNode<Schema.SectionComp
                   ...HeadingElementData
                   ...HztlCardComponentData
                   ...ImageElementData
+                  ...LabelInputData
+                  ...MobileCTABlockData
+                  ...MobileDetailCardData
                   ...OdpEmbedBlockData
                   ...ParagraphElementData
                   ...ProductData
@@ -1200,6 +2067,8 @@ export const SectionCompositionDataFragmentDoc : DocumentNode<Schema.SectionComp
   }
 }
     ${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
@@ -1207,6 +2076,9 @@ ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HztlCardComponentDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
@@ -1223,6 +2095,8 @@ export const CompositionComponentNodeFragmentDoc : DocumentNode<Schema.Compositi
     ...IContentData
     ...FormElementData
     ...ProductsData
+    ...BKCardListData
+    ...BKCardData
     ...MegaMenuGroupBlockData
     ...ArticleListElementData
     ...CTAElementData
@@ -1230,6 +2104,9 @@ export const CompositionComponentNodeFragmentDoc : DocumentNode<Schema.Compositi
     ...HeadingElementData
     ...HztlCardComponentData
     ...ImageElementData
+    ...LabelInputData
+    ...MobileCTABlockData
+    ...MobileDetailCardData
     ...OdpEmbedBlockData
     ...ParagraphElementData
     ...ProductData
@@ -1242,6 +2119,8 @@ export const CompositionComponentNodeFragmentDoc : DocumentNode<Schema.Compositi
     ${IContentDataFragmentDoc}
 ${FormElementDataFragmentDoc}
 ${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
@@ -1249,6 +2128,9 @@ ${ContentRecsElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HztlCardComponentDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
@@ -1313,6 +2195,28 @@ export const SectionElementDataFragmentDoc : DocumentNode<Schema.SectionElementD
   ...IContentData
 }
     ${IContentDataFragmentDoc}`;
+export const getBK_ExperienceDataDocument = gql`
+    query getBK_ExperienceData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
+  data: BK_Experience(
+    ids: $key
+    locale: $locale
+    variation: $variation
+    where: {_metadata: {changeset: {eq: $changeset}, version: {eq: $version}}}
+  ) {
+    total
+    item {
+      _metadata {
+        key
+        version
+        locale
+        changeset
+        variation
+      }
+      ...ExperienceData
+    }
+  }
+}
+    ${ExperienceDataFragmentDoc}`;
 export const getBlankExperienceDataDocument = gql`
     query getBlankExperienceData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
   data: BlankExperience(
@@ -1399,6 +2303,28 @@ ${IContentDataFragmentDoc}
 ${GlobalHeaderDataFragmentDoc}
 ${LandingHeaderDataFragmentDoc}
 ${PageSeoSettingsPropertyDataFragmentDoc}`;
+export const getPPExperienceDataDocument = gql`
+    query getPPExperienceData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
+  data: PPExperience(
+    ids: $key
+    locale: $locale
+    variation: $variation
+    where: {_metadata: {changeset: {eq: $changeset}, version: {eq: $version}}}
+  ) {
+    total
+    item {
+      _metadata {
+        key
+        version
+        locale
+        changeset
+        variation
+      }
+      ...ExperienceData
+    }
+  }
+}
+    ${ExperienceDataFragmentDoc}`;
 export const getAboutUsDataDocument = gql`
     query getAboutUsData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
   data: AboutUs(
@@ -1419,13 +2345,108 @@ export const getAboutUsDataDocument = gql`
       heading
       content {
         ...IContentData
+        ...ProductsData
+        ...BKCardListData
+        ...BKCardData
+        ...MegaMenuGroupBlockData
+        ...AUHeaderData
+        ...ArticleListElementData
+        ...ButtonBlockData
         ...CTAElementData
+        ...CTATiData
+        ...CarouselBlockData
+        ...ContentRecsElementData
+        ...FaqBlockData
+        ...FaqItemBlockData
+        ...GlobalHeaderData
+        ...HeadingElementData
+        ...HeroBlockData
+        ...HztlCardComponentData
+        ...HztlPageSEOSettingsData
+        ...HztlPromoData
+        ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
+        ...LandingHeaderData
+        ...LanguagePromoBlockData
+        ...LayoutSettingsBlockData
+        ...MenuNavigationBlockData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
+        ...OdpEmbedBlockData
+        ...PageSeoSettingsData
+        ...ParagraphElementData
+        ...ProductData
+        ...ProductCardData
+        ...PromoCardData
+        ...QuoteBlockData
+        ...RKDDTestingBlockData
+        ...RichTextElementData
+        ...SampleHeroBannerData
+        ...TestimonialElementData
+        ...TextBlockData
+        ...TitleDescriptionTiData
+        ...VideoElementData
+        ...bk_heroData
+        ...testData
+        ...testbannerData
       }
+      categoryChoice
     }
   }
 }
     ${IContentDataFragmentDoc}
-${CTAElementDataFragmentDoc}`;
+${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
+${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
+${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
+${GlobalHeaderDataFragmentDoc}
+${HeadingElementDataFragmentDoc}
+${HeroBlockDataFragmentDoc}
+${HztlCardComponentDataFragmentDoc}
+${HztlPageSEOSettingsDataFragmentDoc}
+${HztlPromoDataFragmentDoc}
+${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
+${LayoutSettingsBlockDataFragmentDoc}
+${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
+${OdpEmbedBlockDataFragmentDoc}
+${PageSeoSettingsDataFragmentDoc}
+${ParagraphElementDataFragmentDoc}
+${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
+${PromoCardDataFragmentDoc}
+${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
+${RichTextElementDataFragmentDoc}
+${SampleHeroBannerDataFragmentDoc}
+${TestimonialElementDataFragmentDoc}
+${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
+${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
+${testDataFragmentDoc}
+${testbannerDataFragmentDoc}`;
 export const getBlogPostPageDataDocument = gql`
     query getBlogPostPageData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
   data: BlogPostPage(
@@ -1466,24 +2487,41 @@ export const getBlogPostPageDataDocument = gql`
       continueReading {
         ...IContentData
         ...ArticleListElementData
+        ...AUHeaderData
+        ...BKCardData
+        ...BKCardListData
+        ...bk_heroData
         ...ContentRecsElementData
         ...ContinueReadingComponentData
         ...CTAElementData
+        ...CTATiData
+        ...FaqBlockData
+        ...FaqItemBlockData
         ...GlobalHeaderData
         ...HeadingElementData
         ...HztlCardComponentData
         ...HztlPageSEOSettingsData
         ...HztlPromoData
         ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
         ...LandingHeaderData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
         ...ParagraphElementData
         ...ProductData
-        ...ProductsData
+        ...ProductCardData
         ...PromoCardData
         ...RichTextElementData
+        ...RKDDTestingBlockData
         ...SampleHeroBannerData
         ...testData
+        ...testbannerData
         ...TestimonialElementData
+        ...TitleDescriptionTiData
         ...VideoElementData
         ...ButtonBlockData
         ...CarouselBlockData
@@ -1493,6 +2531,7 @@ export const getBlogPostPageDataDocument = gql`
         ...PageSeoSettingsData
         ...QuoteBlockData
         ...TextBlockData
+        ...LanguagePromoBlockData
       }
       SeoSettings {
         ...PageSeoSettingsPropertyData
@@ -1504,24 +2543,41 @@ export const getBlogPostPageDataDocument = gql`
 ${CmpVideoAssetInfoFragmentDoc}
 ${IContentDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${bk_heroDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
 ${ContinueReadingComponentDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
 ${GlobalHeaderDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HztlCardComponentDataFragmentDoc}
 ${HztlPageSEOSettingsDataFragmentDoc}
 ${HztlPromoDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
 ${LandingHeaderDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
-${ProductsDataFragmentDoc}
+${ProductCardDataFragmentDoc}
 ${PromoCardDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
 ${SampleHeroBannerDataFragmentDoc}
 ${testDataFragmentDoc}
+${testbannerDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
@@ -1531,6 +2587,7 @@ ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
 ${PageSeoSettingsPropertyDataFragmentDoc}`;
 export const getHomePageDataDocument = gql`
     query getHomePageData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
@@ -1552,12 +2609,18 @@ export const getHomePageDataDocument = gql`
       Header {
         ...IContentData
         ...ProductsData
+        ...BKCardListData
+        ...BKCardData
         ...MegaMenuGroupBlockData
+        ...AUHeaderData
         ...ArticleListElementData
         ...ButtonBlockData
         ...CTAElementData
+        ...CTATiData
         ...CarouselBlockData
         ...ContentRecsElementData
+        ...FaqBlockData
+        ...FaqItemBlockData
         ...GlobalHeaderData
         ...HeadingElementData
         ...HeroBlockData
@@ -1565,44 +2628,75 @@ export const getHomePageDataDocument = gql`
         ...HztlPageSEOSettingsData
         ...HztlPromoData
         ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
         ...LandingHeaderData
+        ...LanguagePromoBlockData
         ...LayoutSettingsBlockData
         ...MenuNavigationBlockData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
         ...OdpEmbedBlockData
         ...PageSeoSettingsData
         ...ParagraphElementData
         ...ProductData
+        ...ProductCardData
         ...PromoCardData
         ...QuoteBlockData
+        ...RKDDTestingBlockData
         ...RichTextElementData
         ...SampleHeroBannerData
         ...TestimonialElementData
         ...TextBlockData
+        ...TitleDescriptionTiData
         ...VideoElementData
+        ...bk_heroData
         ...testData
+        ...testbannerData
       }
       Subheader
       Body {
         ...IContentData
         ...ArticleListElementData
+        ...AUHeaderData
+        ...BKCardData
+        ...BKCardListData
+        ...bk_heroData
         ...ContentRecsElementData
         ...ContinueReadingComponentData
         ...CTAElementData
+        ...CTATiData
+        ...FaqBlockData
+        ...FaqItemBlockData
         ...GlobalHeaderData
         ...HeadingElementData
         ...HztlCardComponentData
         ...HztlPageSEOSettingsData
         ...HztlPromoData
         ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
         ...LandingHeaderData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
         ...ParagraphElementData
         ...ProductData
+        ...ProductCardData
         ...ProductsData
         ...PromoCardData
         ...RichTextElementData
+        ...RKDDTestingBlockData
         ...SampleHeroBannerData
         ...testData
+        ...testbannerData
         ...TestimonialElementData
+        ...TitleDescriptionTiData
         ...VideoElementData
         ...ButtonBlockData
         ...CarouselBlockData
@@ -1612,6 +2706,7 @@ export const getHomePageDataDocument = gql`
         ...PageSeoSettingsData
         ...QuoteBlockData
         ...TextBlockData
+        ...LanguagePromoBlockData
         ...LayoutSettingsBlockData
         ...MegaMenuGroupBlockData
         ...ImageMediaData
@@ -1620,12 +2715,18 @@ export const getHomePageDataDocument = gql`
       Footer {
         ...IContentData
         ...ProductsData
+        ...BKCardListData
+        ...BKCardData
         ...MegaMenuGroupBlockData
+        ...AUHeaderData
         ...ArticleListElementData
         ...ButtonBlockData
         ...CTAElementData
+        ...CTATiData
         ...CarouselBlockData
         ...ContentRecsElementData
+        ...FaqBlockData
+        ...FaqItemBlockData
         ...GlobalHeaderData
         ...HeadingElementData
         ...HeroBlockData
@@ -1633,21 +2734,34 @@ export const getHomePageDataDocument = gql`
         ...HztlPageSEOSettingsData
         ...HztlPromoData
         ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
         ...LandingHeaderData
+        ...LanguagePromoBlockData
         ...LayoutSettingsBlockData
         ...MenuNavigationBlockData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
         ...OdpEmbedBlockData
         ...PageSeoSettingsData
         ...ParagraphElementData
         ...ProductData
+        ...ProductCardData
         ...PromoCardData
         ...QuoteBlockData
+        ...RKDDTestingBlockData
         ...RichTextElementData
         ...SampleHeroBannerData
         ...TestimonialElementData
         ...TextBlockData
+        ...TitleDescriptionTiData
         ...VideoElementData
+        ...bk_heroData
         ...testData
+        ...testbannerData
       }
       sampleHeroBannerBlock {
         ...SampleHeroBannerPropertyData
@@ -1660,12 +2774,18 @@ ${ImageMediaDataFragmentDoc}
 ${GenericMediaDataFragmentDoc}
 ${IContentDataFragmentDoc}
 ${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
 ${GlobalHeaderDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1673,21 +2793,34 @@ ${HztlCardComponentDataFragmentDoc}
 ${HztlPageSEOSettingsDataFragmentDoc}
 ${HztlPromoDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
 ${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
 ${PromoCardDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${SampleHeroBannerDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
 ${testDataFragmentDoc}
+${testbannerDataFragmentDoc}
 ${SampleHeroBannerPropertyDataFragmentDoc}`;
 export const getLandingPageDataDocument = gql`
     query getLandingPageData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
@@ -1709,12 +2842,18 @@ export const getLandingPageDataDocument = gql`
       TopContentArea {
         ...IContentData
         ...ProductsData
+        ...BKCardListData
+        ...BKCardData
         ...MegaMenuGroupBlockData
+        ...AUHeaderData
         ...ArticleListElementData
         ...ButtonBlockData
         ...CTAElementData
+        ...CTATiData
         ...CarouselBlockData
         ...ContentRecsElementData
+        ...FaqBlockData
+        ...FaqItemBlockData
         ...GlobalHeaderData
         ...HeadingElementData
         ...HeroBlockData
@@ -1722,31 +2861,50 @@ export const getLandingPageDataDocument = gql`
         ...HztlPageSEOSettingsData
         ...HztlPromoData
         ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
         ...LandingHeaderData
+        ...LanguagePromoBlockData
         ...LayoutSettingsBlockData
         ...MenuNavigationBlockData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
         ...OdpEmbedBlockData
         ...PageSeoSettingsData
         ...ParagraphElementData
         ...ProductData
+        ...ProductCardData
         ...PromoCardData
         ...QuoteBlockData
+        ...RKDDTestingBlockData
         ...RichTextElementData
         ...SampleHeroBannerData
         ...TestimonialElementData
         ...TextBlockData
+        ...TitleDescriptionTiData
         ...VideoElementData
+        ...bk_heroData
         ...testData
+        ...testbannerData
       }
       MainContentArea {
         ...IContentData
         ...ProductsData
+        ...BKCardListData
+        ...BKCardData
         ...MegaMenuGroupBlockData
+        ...AUHeaderData
         ...ArticleListElementData
         ...ButtonBlockData
         ...CTAElementData
+        ...CTATiData
         ...CarouselBlockData
         ...ContentRecsElementData
+        ...FaqBlockData
+        ...FaqItemBlockData
         ...GlobalHeaderData
         ...HeadingElementData
         ...HeroBlockData
@@ -1754,21 +2912,34 @@ export const getLandingPageDataDocument = gql`
         ...HztlPageSEOSettingsData
         ...HztlPromoData
         ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
         ...LandingHeaderData
+        ...LanguagePromoBlockData
         ...LayoutSettingsBlockData
         ...MenuNavigationBlockData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
         ...OdpEmbedBlockData
         ...PageSeoSettingsData
         ...ParagraphElementData
         ...ProductData
+        ...ProductCardData
         ...PromoCardData
         ...QuoteBlockData
+        ...RKDDTestingBlockData
         ...RichTextElementData
         ...SampleHeroBannerData
         ...TestimonialElementData
         ...TextBlockData
+        ...TitleDescriptionTiData
         ...VideoElementData
+        ...bk_heroData
         ...testData
+        ...testbannerData
       }
       SeoSettings {
         ...PageSeoSettingsPropertyData
@@ -1778,12 +2949,18 @@ export const getLandingPageDataDocument = gql`
 }
     ${IContentDataFragmentDoc}
 ${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
 ${ArticleListElementDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
 ${CarouselBlockDataFragmentDoc}
 ${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
 ${GlobalHeaderDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${HeroBlockDataFragmentDoc}
@@ -1791,25 +2968,355 @@ ${HztlCardComponentDataFragmentDoc}
 ${HztlPageSEOSettingsDataFragmentDoc}
 ${HztlPromoDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
 ${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
 ${LayoutSettingsBlockDataFragmentDoc}
 ${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
 ${OdpEmbedBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
 ${PromoCardDataFragmentDoc}
 ${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
 ${RichTextElementDataFragmentDoc}
 ${SampleHeroBannerDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
 ${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
 ${testDataFragmentDoc}
+${testbannerDataFragmentDoc}
 ${PageSeoSettingsPropertyDataFragmentDoc}`;
+export const getNPHomePageDataDocument = gql`
+    query getNPHomePageData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
+  data: NPHomePage(
+    ids: $key
+    locale: $locale
+    variation: $variation
+    where: {_metadata: {changeset: {eq: $changeset}, version: {eq: $version}}}
+  ) {
+    total
+    item {
+      _metadata {
+        key
+        version
+        locale
+        changeset
+        variation
+      }
+      NPTitle
+      NPMain {
+        ...IContentData
+        ...ProductsData
+        ...BKCardListData
+        ...BKCardData
+        ...MegaMenuGroupBlockData
+        ...AUHeaderData
+        ...ArticleListElementData
+        ...ButtonBlockData
+        ...CTAElementData
+        ...CTATiData
+        ...CarouselBlockData
+        ...ContentRecsElementData
+        ...FaqBlockData
+        ...FaqItemBlockData
+        ...GlobalHeaderData
+        ...HeadingElementData
+        ...HeroBlockData
+        ...HztlCardComponentData
+        ...HztlPageSEOSettingsData
+        ...HztlPromoData
+        ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
+        ...LandingHeaderData
+        ...LanguagePromoBlockData
+        ...LayoutSettingsBlockData
+        ...MenuNavigationBlockData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
+        ...OdpEmbedBlockData
+        ...PageSeoSettingsData
+        ...ParagraphElementData
+        ...ProductData
+        ...ProductCardData
+        ...PromoCardData
+        ...QuoteBlockData
+        ...RKDDTestingBlockData
+        ...RichTextElementData
+        ...SampleHeroBannerData
+        ...TestimonialElementData
+        ...TextBlockData
+        ...TitleDescriptionTiData
+        ...VideoElementData
+        ...bk_heroData
+        ...testData
+        ...testbannerData
+      }
+    }
+  }
+}
+    ${IContentDataFragmentDoc}
+${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
+${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
+${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
+${GlobalHeaderDataFragmentDoc}
+${HeadingElementDataFragmentDoc}
+${HeroBlockDataFragmentDoc}
+${HztlCardComponentDataFragmentDoc}
+${HztlPageSEOSettingsDataFragmentDoc}
+${HztlPromoDataFragmentDoc}
+${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
+${LayoutSettingsBlockDataFragmentDoc}
+${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
+${OdpEmbedBlockDataFragmentDoc}
+${PageSeoSettingsDataFragmentDoc}
+${ParagraphElementDataFragmentDoc}
+${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
+${PromoCardDataFragmentDoc}
+${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
+${RichTextElementDataFragmentDoc}
+${SampleHeroBannerDataFragmentDoc}
+${TestimonialElementDataFragmentDoc}
+${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
+${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
+${testDataFragmentDoc}
+${testbannerDataFragmentDoc}`;
+export const getSecondTiPageDataDocument = gql`
+    query getSecondTiPageData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
+  data: SecondTiPage(
+    ids: $key
+    locale: $locale
+    variation: $variation
+    where: {_metadata: {changeset: {eq: $changeset}, version: {eq: $version}}}
+  ) {
+    total
+    item {
+      _metadata {
+        key
+        version
+        locale
+        changeset
+        variation
+      }
+      SecondPageTiContentArea {
+        ...IContentData
+        ...ProductsData
+        ...BKCardListData
+        ...BKCardData
+        ...MegaMenuGroupBlockData
+        ...AUHeaderData
+        ...ArticleListElementData
+        ...ButtonBlockData
+        ...CTAElementData
+        ...CTATiData
+        ...CarouselBlockData
+        ...ContentRecsElementData
+        ...FaqBlockData
+        ...FaqItemBlockData
+        ...GlobalHeaderData
+        ...HeadingElementData
+        ...HeroBlockData
+        ...HztlCardComponentData
+        ...HztlPageSEOSettingsData
+        ...HztlPromoData
+        ...ImageElementData
+        ...ImageTiData
+        ...LabelInputData
+        ...LandingHeaderData
+        ...LanguagePromoBlockData
+        ...LayoutSettingsBlockData
+        ...MenuNavigationBlockData
+        ...MobileCTABlockData
+        ...MobileDemoBlockData
+        ...MobileDetailCardData
+        ...MyBannerBlockData
+        ...NewProductsBlockData
+        ...OdpEmbedBlockData
+        ...PageSeoSettingsData
+        ...ParagraphElementData
+        ...ProductData
+        ...ProductCardData
+        ...PromoCardData
+        ...QuoteBlockData
+        ...RKDDTestingBlockData
+        ...RichTextElementData
+        ...SampleHeroBannerData
+        ...TestimonialElementData
+        ...TextBlockData
+        ...TitleDescriptionTiData
+        ...VideoElementData
+        ...bk_heroData
+        ...testData
+        ...testbannerData
+      }
+    }
+  }
+}
+    ${IContentDataFragmentDoc}
+${ProductsDataFragmentDoc}
+${BKCardListDataFragmentDoc}
+${BKCardDataFragmentDoc}
+${MegaMenuGroupBlockDataFragmentDoc}
+${AUHeaderDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
+${CTAElementDataFragmentDoc}
+${CTATiDataFragmentDoc}
+${CarouselBlockDataFragmentDoc}
+${ContentRecsElementDataFragmentDoc}
+${FaqBlockDataFragmentDoc}
+${FaqItemBlockDataFragmentDoc}
+${GlobalHeaderDataFragmentDoc}
+${HeadingElementDataFragmentDoc}
+${HeroBlockDataFragmentDoc}
+${HztlCardComponentDataFragmentDoc}
+${HztlPageSEOSettingsDataFragmentDoc}
+${HztlPromoDataFragmentDoc}
+${ImageElementDataFragmentDoc}
+${ImageTiDataFragmentDoc}
+${LabelInputDataFragmentDoc}
+${LandingHeaderDataFragmentDoc}
+${LanguagePromoBlockDataFragmentDoc}
+${LayoutSettingsBlockDataFragmentDoc}
+${MenuNavigationBlockDataFragmentDoc}
+${MobileCTABlockDataFragmentDoc}
+${MobileDemoBlockDataFragmentDoc}
+${MobileDetailCardDataFragmentDoc}
+${MyBannerBlockDataFragmentDoc}
+${NewProductsBlockDataFragmentDoc}
+${OdpEmbedBlockDataFragmentDoc}
+${PageSeoSettingsDataFragmentDoc}
+${ParagraphElementDataFragmentDoc}
+${ProductDataFragmentDoc}
+${ProductCardDataFragmentDoc}
+${PromoCardDataFragmentDoc}
+${QuoteBlockDataFragmentDoc}
+${RKDDTestingBlockDataFragmentDoc}
+${RichTextElementDataFragmentDoc}
+${SampleHeroBannerDataFragmentDoc}
+${TestimonialElementDataFragmentDoc}
+${TextBlockDataFragmentDoc}
+${TitleDescriptionTiDataFragmentDoc}
+${VideoElementDataFragmentDoc}
+${bk_heroDataFragmentDoc}
+${testDataFragmentDoc}
+${testbannerDataFragmentDoc}`;
+export const getTiPageTemplateDataDocument = gql`
+    query getTiPageTemplateData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
+  data: TiPageTemplate(
+    ids: $key
+    locale: $locale
+    variation: $variation
+    where: {_metadata: {changeset: {eq: $changeset}, version: {eq: $version}}}
+  ) {
+    total
+    item {
+      _metadata {
+        key
+        version
+        locale
+        changeset
+        variation
+      }
+      TitleDescription {
+        ...TitleDescriptionTiPropertyData
+      }
+      CTA {
+        ...CTATiPropertyData
+      }
+      ImageComponent: Image {
+        ...ImageTiPropertyData
+      }
+    }
+  }
+}
+    ${TitleDescriptionTiPropertyDataFragmentDoc}
+${CTATiPropertyDataFragmentDoc}
+${ImageTiPropertyDataFragmentDoc}`;
+export const getmobileDetailDataDocument = gql`
+    query getmobileDetailData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
+  data: mobileDetail(
+    ids: $key
+    locale: $locale
+    variation: $variation
+    where: {_metadata: {changeset: {eq: $changeset}, version: {eq: $version}}}
+  ) {
+    total
+    item {
+      _metadata {
+        key
+        version
+        locale
+        changeset
+        variation
+      }
+      MobileDeatailBlock
+    }
+  }
+}
+    `;
 export const getBlankSectionDataDocument = gql`
     query getBlankSectionData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
   data: BlankSection(
+    ids: $key
+    locale: $locale
+    variation: $variation
+    where: {_metadata: {changeset: {eq: $changeset}, version: {eq: $version}}}
+  ) {
+    total
+    item {
+      _metadata {
+        key
+        version
+        locale
+        changeset
+        variation
+      }
+      ...SectionCompositionData
+    }
+  }
+}
+    ${SectionCompositionDataFragmentDoc}`;
+export const getPPSectionDataDocument = gql`
+    query getPPSectionData($key: [String!]!, $locale: [Locales], $changeset: String, $variation: VariationInput, $version: String) {
+  data: PPSection(
     ids: $key
     locale: $locale
     variation: $variation
@@ -1837,6 +3344,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    getBK_ExperienceData(variables: Schema.getBK_ExperienceDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getBK_ExperienceDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBK_ExperienceDataQuery>({ document: getBK_ExperienceDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getBK_ExperienceData', 'query', variables);
+    },
     getBlankExperienceData(variables: Schema.getBlankExperienceDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getBlankExperienceDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlankExperienceDataQuery>({ document: getBlankExperienceDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getBlankExperienceData', 'query', variables);
     },
@@ -1845,6 +3355,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getGHeaderData(variables: Schema.getGHeaderDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getGHeaderDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getGHeaderDataQuery>({ document: getGHeaderDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getGHeaderData', 'query', variables);
+    },
+    getPPExperienceData(variables: Schema.getPPExperienceDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getPPExperienceDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getPPExperienceDataQuery>({ document: getPPExperienceDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getPPExperienceData', 'query', variables);
     },
     getAboutUsData(variables: Schema.getAboutUsDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getAboutUsDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getAboutUsDataQuery>({ document: getAboutUsDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getAboutUsData', 'query', variables);
@@ -1858,8 +3371,23 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     getLandingPageData(variables: Schema.getLandingPageDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getLandingPageDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getLandingPageDataQuery>({ document: getLandingPageDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getLandingPageData', 'query', variables);
     },
+    getNPHomePageData(variables: Schema.getNPHomePageDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getNPHomePageDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getNPHomePageDataQuery>({ document: getNPHomePageDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getNPHomePageData', 'query', variables);
+    },
+    getSecondTiPageData(variables: Schema.getSecondTiPageDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getSecondTiPageDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getSecondTiPageDataQuery>({ document: getSecondTiPageDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getSecondTiPageData', 'query', variables);
+    },
+    getTiPageTemplateData(variables: Schema.getTiPageTemplateDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getTiPageTemplateDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getTiPageTemplateDataQuery>({ document: getTiPageTemplateDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getTiPageTemplateData', 'query', variables);
+    },
+    getmobileDetailData(variables: Schema.getmobileDetailDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getmobileDetailDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getmobileDetailDataQuery>({ document: getmobileDetailDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getmobileDetailData', 'query', variables);
+    },
     getBlankSectionData(variables: Schema.getBlankSectionDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getBlankSectionDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlankSectionDataQuery>({ document: getBlankSectionDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getBlankSectionData', 'query', variables);
+    },
+    getPPSectionData(variables: Schema.getPPSectionDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<Schema.getPPSectionDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getPPSectionDataQuery>({ document: getPPSectionDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'getPPSectionData', 'query', variables);
     }
   };
 }

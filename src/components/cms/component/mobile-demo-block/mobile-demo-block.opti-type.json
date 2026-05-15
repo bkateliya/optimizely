@@ -1,0 +1,13 @@
+{
+  "key": "MobileDemoBlock",
+  "displayName": "Mobile Demo Block",
+  "description": "Leaning Opti",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {}
+}

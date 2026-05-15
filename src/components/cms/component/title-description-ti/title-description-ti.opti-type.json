@@ -1,0 +1,37 @@
+{
+  "key": "TitleDescriptionTi",
+  "displayName": "TitleDescriptionTi",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "Heading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Content Author Display Name - Heading",
+      "description": "Content Author Help Text - Heading ",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 0,
+      "maxLength": 100
+    },
+    "Description": {
+      "type": "string",
+      "displayName": "Display name - Description",
+      "description": "Help Text - Description",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 0,
+      "maxLength": 400
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "key": "PPExperience",
+  "displayName": "PPExperience",
+  "description": "",
+  "baseType": "_experience",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {}
+}

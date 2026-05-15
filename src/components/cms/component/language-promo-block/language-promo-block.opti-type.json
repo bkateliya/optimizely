@@ -1,0 +1,83 @@
+{
+  "key": "LanguagePromoBlock",
+  "displayName": "Language Promo Block",
+  "description": "A bilingual promotional card with localized title, description, and call-to-action. Supports English and Spanish.",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 200,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "Title": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "The main heading for the promo card (localized per language)",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 10
+    },
+    "Description": {
+      "type": "richText",
+      "displayName": "Description",
+      "description": "Supporting text below the title (localized per language)",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 20
+    },
+    "CallToAction": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Call To Action",
+      "description": "Button label text (localized per language)",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30
+    },
+    "CallToActionUrl": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "CTA Link",
+      "description": "The URL the CTA button points to",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 40
+    },
+    "Theme": {
+      "type": "string",
+      "format": "selectOne",
+      "displayName": "Card Theme",
+      "description": "Visual color theme for the promo card",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 50,
+      "enum": [
+        {
+          "value": "blue",
+          "displayName": "Blue"
+        },
+        {
+          "value": "green",
+          "displayName": "Green"
+        },
+        {
+          "value": "orange",
+          "displayName": "Orange"
+        },
+        {
+          "value": "purple",
+          "displayName": "Purple"
+        }
+      ]
+    }
+  }
+}
